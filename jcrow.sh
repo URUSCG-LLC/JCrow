@@ -4,7 +4,13 @@
 
 option="${1}"
 
-source "settings.conf"
+if [ -e "settings.conf" ];then
+	source "settings.conf"
+else
+	printf "\033[35mError:\t\033[31mNo Settings Configuration was defined.\033[0m\n"
+	echo 1
+fi
+
 error(){
 	printf "\033[35mError:\t\033[31m${1}\033[0m\n"
 }
